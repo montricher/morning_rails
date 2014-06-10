@@ -19,7 +19,7 @@ class RobotsController < ApplicationsController
 
 
   def edit
-    @robot = robot.find(robot_attributes[:id])
+    @robot = robot.find(params[:id])
   end
 
   def update
