@@ -23,6 +23,11 @@ class RobotsController < ApplicationsController
 
   def update
 
+    robot = robot.find(robot_attributes[:id])
+
+    robot.update_attributes(robot_attributes)
+
+    redirect_to robot_path(robot_attributes[:id])
 
 
   end
