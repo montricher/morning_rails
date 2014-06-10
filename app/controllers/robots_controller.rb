@@ -6,7 +6,11 @@ class RobotsController < ApplicationsController
   def new
   end
 
+<<<<<<< HEAD
   # David
+=======
+
+>>>>>>> 3668d2b05f6552034505f4d135f9bb42a682df88
   def show
     # Find ID and render it
     @robot = Robot.find(params[:id])
@@ -17,13 +21,30 @@ class RobotsController < ApplicationsController
   def create
   end
 
+
+# Joe's duty
   def edit
+
+    @robot = robot.find(robot_attributes[:id])
+
   end
 
   def update
+
+    robot = robot.find(robot_attributes[:id])
+
+    robot.update_attributes(robot_attributes)
+
+    redirect_to robot_path(robot_attributes[:id])
+
+
   end
 
+<<<<<<< HEAD
   # David
+=======
+
+>>>>>>> 3668d2b05f6552034505f4d135f9bb42a682df88
   def destroy
     # Find Robot ID and execute .destroy
     @robot = Robot.find(params[:id])
@@ -33,6 +54,15 @@ class RobotsController < ApplicationsController
     redirect_to "robots#index"
     # redirect_to root_path
   end
+
+  private
+
+  def robot_attributes
+
+    params.require(:robot).permit(:name, :purpose, :price, :year)
+
+  end
+
 
 end
 
