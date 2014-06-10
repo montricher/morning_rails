@@ -1,0 +1,10 @@
+<div class="backlink"><%= link_to "Back", robots_path %></div>
+
+<%= form_for @robot do |f| %>
+  <p><%= f.text_field :name, { value: @robot.name } %></p>
+  <p><%= f.text_field :purpose, { value: @robot.purpose } %></p>
+  <p><%= f.text_field :price, { value: @robot.price } %></p>
+  <p><%= f.text_field :year, { value: @robot.year } %></p>
+  
+  <p><%= f.submit %></p>
+<% end %>

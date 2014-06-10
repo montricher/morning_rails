@@ -19,11 +19,15 @@ class RobotsController < ApplicationsController
 
 
   def edit
-
+    @robot = robot.find(robot_attributes[:id])
   end
 
   def update
+    robot = robot.find(robot_attributes[:id])
 
+    robot.update_attributes(robot_attributes)
+
+    redirect_to robot_path(robot_attributes[:id])
   end
 
 
@@ -37,6 +41,14 @@ class RobotsController < ApplicationsController
     # Need to redirect somewhere. Root_path?
     redirect_to "robots#index"
     # redirect_to root_path
+  end
+
+  private
+
+  def robot_attributes
+
+    params.require(:robot).permit(:name, :purpose, :price, :year)
+
   end
 
 end
